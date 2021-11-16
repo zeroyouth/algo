@@ -1,0 +1,27 @@
+'''
+2021.11.16
+프로그래머스-로또문제
+1. 최고 순위와 최저 순위로 배열에 담아 출력
+2. lottos의 길이는 6
+3. 0은 알아볼 수 없는 숫자를 의미
+
+win_nums는 길이 6인 정수배열
+lottos 민우의 로또번호
+result엔 최고순위와 최저 순위를 차례대로 담아서 리턴
+
+풀이 아이디어💡
+-lottos 배열과 win_nums 배열을 비교해서 총 몇개가 매칭되었는지
+카운팅하기 0에 들어갈 숫자가 모두 틀리면 최소 등수고 모두 맞았다면
+최대 등수임.
+'''
+
+def solution(lottos, win_nums):
+    rank = [6, 6, 5, 4, 3, 2, 1]
+ #          0  1  2  3  4  5  6개 맞았을 때 등수 임.
+    cnt_0 = lottos.count(0)  # lottos 안의 0의 개수를 반환
+    answer = 0
+    for x in win_nums: # 로또번호와 민우번호가 일치할때 answer 카운트1
+        if x in lottos:
+            answer += 1
+    #  최고순위는 0개수+답카운터, 최저는 0개수를 모두 틀렸다고 보고 세지 않음
+    return rank[cnt_0 + answer], rank[answer]
