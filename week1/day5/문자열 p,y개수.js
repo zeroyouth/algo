@@ -6,7 +6,6 @@
 조건 : 
 - p,y가 하나도 없는 경우 항상 true 
 - 대소문자 구별 x
-
 */
 
 function solution(s){
